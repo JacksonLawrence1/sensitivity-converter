@@ -28,7 +28,7 @@ export const games = [
   },
   {
     id: "r6",
-    name: "Tom Clancy's Rainbow Six Siege",
+    name: "Tom Clancy's Rainbow Six: Siege",
     convert: {
       csgo: (sens) => sens / 3.83972336439,
     },

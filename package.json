@@ -4,12 +4,11 @@
   "homepage": "https://JacksonLawrence1.github.io/sensitivity-converter",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d .next",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",

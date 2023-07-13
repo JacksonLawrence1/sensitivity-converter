@@ -23,7 +23,7 @@ function Body(props) {
         return (
             <div>
             <p>{prefix}</p>
-            <select onChange={onChange}>
+            <select className="dropdown" onChange={onChange}>
             {mapGames()}
             </select>
             </div>
@@ -74,13 +74,17 @@ function Body(props) {
 
     return (
         <div>
-        <p>This website is designed to help convert your sensitivity between games.</p>
-        <p>Select a game from the dropdown with your preferred sensitivity, and desired game you want the equivalent sensitivty for.</p>
-        {gameDropdown("Choose your source game: ", e => setGame(findGame(e.target.value)))}
-        {gameDropdown("Choose your target game: ", e => setTargetGame(findGame(e.target.value)))}
-        <p>Input your source game's sensitivity: </p>
-        <input value={sens} onChange={e => setSens(e.target.value)} />
-        {displayResult()}
+            <div className="generic-card">
+                <p className="text-2xl">This website is designed to help convert your sensitivity between games.</p>
+                <p className="text-2xl"> Select a game from the dropdown with your preferred sensitivity, and desired game you want the equivalent sensitivty for.</p>
+            </div>
+            <div className="generic-card">
+                {gameDropdown("Choose your source game: ", e => setGame(findGame(e.target.value)))}
+                {gameDropdown("Choose your target game: ", e => setTargetGame(findGame(e.target.value)))}
+                <p>Game Sensitivity: </p>
+                <input className="generic-input" value={sens} onChange={handleChange} />
+                {displayResult()}
+            </div>
         </div>
     );
 }

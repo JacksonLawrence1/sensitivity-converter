@@ -10,6 +10,7 @@ export const games = [
       overwatch: (sens) => sens / 3.33333333333,
       b4b: (sens) => sens / 9.43,
       aimlab: (sens) => sens * 2.273,
+      apex: (sens) => sens,
     },
   },
   {
@@ -52,6 +53,13 @@ export const games = [
     name: "Aim Lab",
     convert: {
       csgo: (sens) => sens / 2.273,
+    },
+  },
+  {
+    id: "apex",
+    name: "Apex Legends",
+    convert: {
+      csgo: (sens) => sens,
     },
   },
 ];

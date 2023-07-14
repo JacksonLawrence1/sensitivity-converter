@@ -7,13 +7,13 @@ function mapGames(type) {
   });
 }
 
-function gameDropdown(prefix, type, onChange) {
+function gameDropdown(prefix, value, type, onChange) {
   return (
     <div className="form-control w-full max-w-xs">
       <label className="label">
         <span className="label-text">{prefix}</span>
       </label>
-      <select defaultValue="Select game" className="select select-bordered" onChange={onChange}>
+      <select defaultValue="Select game" value={value ? value.Name : "Select game"} className="select select-bordered" onChange={onChange}>
         <option className="font-sans font-bold" disabled>Select game</option>
         {mapGames(type)}
       </select>
@@ -44,7 +44,7 @@ export function SourceGame({ game, sens, setGame, setSens }) {
   return (
     <div className="card w-fit bg-base-100 shadow-xl mb-6 mt-6">
       <div className="card-body items-center text-center">
-        {gameDropdown("Source: ", "src", (e) =>
+        {gameDropdown("Source: ", game,"src", (e) =>
           setGame(getGameFromName(e.target.value))
         )}
         <p>Sensitivity: </p>
@@ -65,7 +65,7 @@ export function TargetGame({ sens, targetGame, targetSens, setTargetGame }) {
   return (
     <div className="card w-fit bg-base-100 shadow-xl mb-6 mt-6">
       <div className="card-body items-center text-center">
-        {gameDropdown("Target: ", "tar", (e) =>
+        {gameDropdown("Target: ", targetGame, "tar", (e) =>
           setTargetGame(getGameFromName(e.target.value))
         )}
         <p>Sensitivity: </p>

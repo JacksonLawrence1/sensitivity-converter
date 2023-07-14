@@ -4,9 +4,9 @@ import Footer from "./footer";
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen flex flex-col justify-start">
       <Header />
-      <Body />
+      <Body  />
       <Footer />
     </main>
 

@@ -1,7 +1,11 @@
 export default function Footer() {
-    return (
+  return (
+    <div>
+      <footer className="footer absolute bottom-0 w-full px-3 py-3 bg-base-300">
         <div>
-            <footer />
+          <p>Created by Jackson Lawrence</p>
         </div>
-    )
+      </footer>
+    </div>
+  );
 }

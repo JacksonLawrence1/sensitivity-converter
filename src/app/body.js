@@ -5,7 +5,7 @@ import MainGroup from "./main-group";
 function Body(props) {
   return (
     <div>
-      <div className="card w-fit bg-base-100 shadow-xl mx-auto mb-6 mt-6">
+      <div className="card w-fit bg-base-300 shadow-xl mx-auto mb-6 mt-6">
         <div className="card-body items-center text-center">
           <p>
             This tool is designed to help convert mouse sensitivity between

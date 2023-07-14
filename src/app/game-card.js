@@ -29,21 +29,23 @@ function getGameFromName(name) {
 export function SourceGame({ game, sens, setGame, setSens }) {
   function handleSensChange(e) {
     // make sure the input is a number
-    if (isNaN(e.target.value) || !game) {
+    // ensure input is not over 10 characters long
+    if (isNaN(e.target.value) || !game || e.target.value.length > 24) {
       return;
     }
     setSens(e.target.value);
   }
 
   const handleInputField = () => {
+    const className = "input input-bordered w-full max-w-xs";
     if (!game) {
-      return <input value="" disabled />;
+      return <input className={className} value="" disabled />;
     }
-    return <input value={sens} onChange={handleSensChange} />;
+    return <input placeholder="Type here" className={className} value={sens} onChange={handleSensChange} />;
   }
 
   return (
-    <div className="card w-fit bg-base-100 shadow-xl mb-6 mt-6">
+    <div className="card w-fit bg-base-300 shadow-xl mb-6 mt-6">
       <div className="card-body items-center text-center">
         {gameDropdown("Source: ", game,"src", (e) =>
           setGame(getGameFromName(e.target.value))
@@ -57,14 +59,15 @@ export function SourceGame({ game, sens, setGame, setSens }) {
 
 export function TargetGame({ sens, targetGame, targetSens, setTargetGame }) {
   const handleInputField = () => {
+    const className = "input input-bordered w-full max-w-xs";
     if (!targetGame || !sens) {
-      return <input value="" readOnly disabled />;
+      return <input className={className} value="" readOnly disabled />;
     }
-    return <input value={targetSens} readOnly />;
+    return <input className={className} value={targetSens} readOnly />;
   }
 
   return (
-    <div className="card w-fit bg-base-100 shadow-xl mb-6 mt-6">
+    <div className="card w-fit bg-base-300 shadow-xl mb-6 mt-6">
       <div className="card-body items-center text-center">
         {gameDropdown("Target: ", targetGame, "tar", (e) =>
           setTargetGame(getGameFromName(e.target.value))

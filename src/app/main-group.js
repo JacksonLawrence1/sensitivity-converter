@@ -30,6 +30,11 @@ export default function MainGroup(props) {
   }, [sens, game, targetGame]);
 
   function swapGames() {
+    // check games aren't the same
+    if (game === targetGame) {
+      return;
+    }
+
     const tempGame = game;
     const tempSens = sens;
 
@@ -41,28 +46,34 @@ export default function MainGroup(props) {
 
   function renderButton() {
     if (game === undefined || targetGame === undefined || sens === "") {
-      return <button className="btn" onClick={swapGames} disabled>Swap</button>;
+      return (
+        <div
+          className="tooltip-error"
+          title="Select your games and sensitivity first!"
+        >
+          <button className="btn" onClick={swapGames} disabled>
+            Swap
+          </button>
+        </div>
+      );
     }
-    return <button className="btn" onClick={swapGames}>Swap</button>;
+    return (
+      <button className="btn" onClick={swapGames}>
+        Swap
+      </button>
+    );
   }
 
   return (
-    <div>
-      <div className="flex flex-row gap-8 justify-center items-center">
-        <SourceGame
-          game={game}
-          sens={sens}
-          setGame={setGame}
-          setSens={setSens}
-        />
-        {renderButton()}
-        <TargetGame
-          sens={sens}
-          targetGame={targetGame}
-          targetSens={targetSens}
-          setTargetGame={setTargetGame}
-        />
-      </div>
+    <div className="flex flex-row gap-8 justify-center items-center">
+      <SourceGame game={game} sens={sens} setGame={setGame} setSens={setSens} />
+      {renderButton()}
+      <TargetGame
+        sens={sens}
+        targetGame={targetGame}
+        targetSens={targetSens}
+        setTargetGame={setTargetGame}
+      />
     </div>
   );
 }

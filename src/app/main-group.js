@@ -32,10 +32,18 @@ export default function MainGroup(props) {
   function swapGames() {
     const tempGame = game;
     const tempSens = sens;
+
     setGame(targetGame);
     setSens(targetSens);
     setTargetGame(tempGame);
     setTargetSens(tempSens);
+  }
+
+  function renderButton() {
+    if (game === undefined || targetGame === undefined || sens === "") {
+      return <button className="btn" onClick={swapGames} disabled>Swap</button>;
+    }
+    return <button className="btn" onClick={swapGames}>Swap</button>;
   }
 
   return (
@@ -47,7 +55,7 @@ export default function MainGroup(props) {
           setGame={setGame}
           setSens={setSens}
         />
-        <button className="btn btn-ghost" onClick={swapGames} /> 
+        {renderButton()}
         <TargetGame
           sens={sens}
           targetGame={targetGame}

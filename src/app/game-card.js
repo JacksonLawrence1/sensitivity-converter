@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { games } from "./games.js";
 
 function mapGames(type) {
@@ -13,7 +14,7 @@ function gameDropdown(prefix, value, type, onChange) {
       <label className="label">
         <span className="label-text">{prefix}</span>
       </label>
-      <select defaultValue="Select game" value={value ? value.Name : "Select game"} className="select select-bordered" onChange={onChange}>
+      <select value={value ? value.name : "Select game"} className="select select-bordered" onChange={onChange}>
         <option className="font-sans font-bold" disabled>Select game</option>
         {mapGames(type)}
       </select>

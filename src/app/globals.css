@@ -16,32 +16,10 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer components {
   .generic-card {
     @apply relative flex flex-col items-center gap-1
     h-fit w-fit mx-auto px-12 py-4 rounded-lg
     bg-gray-500 text-center mt-16 shadow-lg;
-  }
-
-  .dropdown {
-    @apply text-center relative justify-center items-center
-    bg-slate-800 px-2 py-2 rounded-lg
-    font-sans text-lg;
-  }
-
-  .generic-input {
-    @apply text-center relative justify-center items-center
-    bg-slate-800 px-12 py-2 rounded-lg
-    font-sans;
   }
 }
